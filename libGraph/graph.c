@@ -22,7 +22,6 @@ void initializeGraph(grafo **g, int resp){
     (*g)->matAdj =fillMatrix((*g)->n_v,&((*g)->n_e),(*g)->degree_v,arq);
   }else if(resp==2){
     (*g)->listAdj =fillList((*g)->n_v,&((*g)->n_e),(*g)->degree_v,arq);
-
   }
   fclose(arq);
 }

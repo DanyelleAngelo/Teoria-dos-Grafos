@@ -46,7 +46,19 @@ void newNode(listVertex *vetor,int v1,int v2);
 /*
 @brief: imprime os vértices incidentes sobre cada vértice
 @param vetor: vetor de listas que armazena os vértices incidentes sobre outro.
+@param grau:vetor de graus
 @param n: ordem da matriz
 */
-void printListAdj(listVertex *vetor,int n);
+void printListAdj(listVertex *vetor,int *grau,int n);
+/*
+@brief: deleta todas as listas armazenadas no vetor (faz isso deletando sempre a cabeça de cada vetor).
+@param vetor: vetor de listas
+@param n: quantidade de elementos no vetor
+*/
+void listDelete(listVertex *vetor, int n);
+/*
+@brief: deleta a cabeça da lista analisada)
+@brief lista: lista de vértices incidentes.
+*/
+void removeHead(listVertex *lista);
 #endif

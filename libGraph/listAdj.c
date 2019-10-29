@@ -75,16 +75,32 @@ void newNode(listVertex *vetor,int v1,int v2){
   vetor[v2-1].tail=nodeV1;//a nova cauda é o último elemento
 }
 
-void printListAdj(listVertex *vetor,int n){
-  int i;
+void printListAdj(listVertex *vetor,int *grau,int n){
+  int i,j;
   for(i=0;i<n;i++){
     printf("Vertex: %d\n",i+1);
     printf("Vertex incidentes: ");
     nodeIterator aux = vetor[i].head;
-    while(aux!=NULL){
+    for(j=0;j<grau[i];j++){
       printf("%d ",aux->vertex);
       aux=aux->next;
     }
     printf("\n---------\n");
   }
+}
+void listDelete(listVertex *vetor, int n){
+  int i;
+  for(i=0;i<n;i++){
+    while(vetor[i].head!=NULL){
+      removeHead(&vetor[i]);
+    }
+  }
+}
+void removeHead(listVertex *lista){
+	nodeIterator node = lista->head;
+	lista->head=node->next;
+	if(lista->head==NULL){
+		lista->tail=NULL;
+	}
+	free(node);
 }

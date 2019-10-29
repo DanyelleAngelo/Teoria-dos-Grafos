@@ -7,6 +7,9 @@
 */
 #ifndef FINDTREE
 #define FINDTREE
-//Uma árvore é uma fila!!!
-
+#include "graph.h"
+void findSearch(grafo **g,int v_inicial,int opcao,int resp);
+void bfsListAdj(grafo *g,int v_inicial,FILE *arq);
+void bfsMatAdj(grafo *g,int v_inicial,FILE *arq);
+void is_visitedMat(int **mat,int n, int vertice);
 #endif
