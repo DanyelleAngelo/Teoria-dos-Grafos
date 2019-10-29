@@ -1,0 +1,3 @@
+O arquivo que contém o grafo deve ser salvo como grafo.txt e deve está junto a raíz do programa,
+As informações do grafo lido são salvas no arquivo: saida.txt
+As informaçes sobre as buscas estão no arquivo busca_listAdj.txt e busca_MatAdj.txt
