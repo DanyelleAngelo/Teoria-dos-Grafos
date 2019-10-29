@@ -8,6 +8,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <locale.h>
+#include <time.h>
 #include "libGraph/graph.h"
 #include "libGraph/findTree.h"
 #include "libGraph/listAdj.h"
@@ -15,6 +16,8 @@
 int main(void){
   grafo *g;
   int resp,opcao,v_inicial;
+   clock_t Ticks[2];
+   Ticks[0] = clock();
   setlocale(LC_ALL, "Portuguese");
   while(1){
     printf("\t------- Escolha uma forma de representação para o grafo -------\n\n");
@@ -51,4 +54,7 @@ int main(void){
   }
   free(g);
   g=NULL;
+  Ticks[1] = clock();
+  double Tempo = (Ticks[1] - Ticks[0]) * 1000.0 / CLOCKS_PER_SEC;
+  printf("Tempo gasto: %g ms.", Tempo);
 }
