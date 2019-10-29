@@ -50,4 +50,5 @@ int main(void){
     printf("\n\n\n");
   }
   free(g);
+  g=NULL;
 }
