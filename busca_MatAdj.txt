@@ -1,0 +1,7 @@
+		Busca em largura com matriz de adjascência
+
+---------- Vértice: 2,  nível: 0 -> raíz da árvore
+---------- Vértice: 1, nível: 1 -> vértice pai: 2
+---------- Vértice: 5, nível: 1 -> vértice pai: 2
+---------- Vértice: 2,  nível: 2 -> raíz da árvore
+---------- Vértice: 4, nível: 2 -> vértice pai: 5
