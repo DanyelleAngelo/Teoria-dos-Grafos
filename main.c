@@ -13,36 +13,42 @@
 #include "libGraph/matAdj.h"
 int main(void){
   grafo *g;
-  int representacao,t_busca,v_inicial;
+  int opcao,t_busca,v_inicial;
   setlocale(LC_ALL, "Portuguese");
   while(1){
-    printf("\t------- Escolha uma forma de representação para o grafo -------\n\n");
-    printf("0 - Encerrar programa\n1 - Matriz de adjacência\n2 - Lista de adjacência\n");
+    printf("\t------- Escolha uma opção -------\n\n");
+    printf("0 - Encerrar programa\n1 - Busca em matriz de adjacência\n2 - Busca em lista de adjacência\n3 - Verificar componentes conexos\n4 - Distância entre vértices\n");
     printf("---------- Opção:");
-    scanf("%d",&representacao);
-    if(representacao==0){
+    scanf("%d",&opcao);
+    if(opcao==0){
       printf("\n\n\t---------- Sessão encerrada! ----------\n");
       break;
-    }
-    else if(representacao==1 || representacao==2){
-        initializeGraph(&g,representacao);
-        infoGraph(&g);
-        printf("\n\n\t------- Operações disponíveis -------\n");
-        printf("0 - Encerrar programa\n1 - Busca em largura\n2 - Busca em Profundidade\n3 - Verificar componentes conexos\n");
-        printf("---------- Opção:");
-        scanf("%d",&t_busca);
-        if(t_busca==1 || t_busca ==2){
-          printf("Digite o vértice inicial do grafo:\n");
-          scanf("%d",&v_inicial);
-          findSearch(&g,v_inicial,t_busca,representacao);
+    }else if(opcao==1 || opcao==2 || opcao==3 || opcao==4){
+      initializeGraph(&g,opcao);
+      infoGraph(&g);
+      if(opcao==1 || opcao==2){
+          printf("\n\n\t------- Operações disponíveis -------\n");
+          printf("0 - Encerrar programa\n1 - Busca em largura\n2 - Busca em Profundidade\n");
+          printf("---------- Opção:");
+          scanf("%d",&t_busca);
+          if(t_busca==1 || t_busca ==2){
+            printf("Digite o vértice inicial do grafo:\n");
+            scanf("%d",&v_inicial);
+            findSearch(&g,v_inicial,t_busca,opcao);
 
-        }else if(t_busca==0){
-            printf("\n\n\t---------- Sessão encerrada! ----------\n");
-            break;
-        }
-      //  if(representacao==2)listDelete((*g).listAdj,(*g).n_v);//deleta lista da memória
-
-        break;
+          }else if(t_busca==0){
+              printf("\n\n\t---------- Sessão encerrada! ----------\n");
+              break;
+          }
+        //  if(opcao==2)listDelete((*g).listAdj,(*g).n_v);//deleta lista da memória
+      }else if(opcao==4){
+        int v_inicial,v_final;
+        printf("Digite o vértice inicial da busca:");
+        scanf("%d",&v_inicial);
+        printf("Digite o vértice final da busca:");
+        scanf("%d",&v_final);
+        dijkstra((*g).matAdj,(*g).n_v,v_inicial,v_final);
+      }
     }else{
       printf("Opção inválida!\n");
     }
